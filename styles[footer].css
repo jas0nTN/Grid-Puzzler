@@ -1,0 +1,36 @@
+footer {
+    padding: 150px 80px;
+    display: flex;
+    justify-content: center;
+    gap: 120px;
+}
+
+footer h1 {
+    font-size: 50px;
+}
+
+footer div i {
+    font-size: 85px;
+    padding: 95px;
+    color: #ffc117;
+    background-color: transparent;
+    border-radius: 20px;
+    border: 6px #ffc117 solid;
+    transition: 1s all;
+}
+
+footer .footer-text {
+    width: 550px;
+}
+
+footer .icons {
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    gap: 30px;
+}
+
+footer div i:hover {
+    background-color: #ffc117;
+    color: black;
+}
