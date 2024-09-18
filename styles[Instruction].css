@@ -1,0 +1,61 @@
+* {
+    padding: 0;
+    margin: 0;
+}
+
+body {
+    background-color: #202020;
+    color: #EDEFEF;
+    font-family: Poppins;
+}
+
+section {
+    height: 100vh;
+    padding: 0 clamp(4rem, 12vw, 20rem);
+    display: grid;
+    place-content: center;
+    animation: wholeFadeIn 1.5s ease 1s forwards;
+    opacity: 0;
+}
+
+.instruct {
+    font-size: 50px;
+}
+
+h1 {
+    font-weight: 900;
+}
+
+p {
+    font-size: clamp(1rem, 5vw, 4rem);
+    font-weight: 200;
+}
+
+section:nth-of-type(1) {
+    font-size: 50px;
+}
+
+section:nth-child(2) {
+    background: #6fa1f0;
+}
+
+section:nth-of-type(3) {
+    background: #A4B2C7;
+}
+
+section:nth-of-type(4) {
+    background: #8da2c2;
+}
+
+section:nth-of-type(5) {
+    background: #786DA4;
+}
+
+section:nth-of-type(6) {
+    background: #44436D;
+}
+
+@keyframes wholeFadeIn {
+    from{opacity: 0%;}
+    to{opacity: 100%;}
+}

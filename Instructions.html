@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles[Instruction].css">
+    <link rel="stylesheet" href="header.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inconsolata:wght@200..900&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/x-icon" href="Assets/logo_Test_negate.png">
+    <title>Grid Puzzler | Instructions</title>
+</head>
+<body>
+    <nav class="navigation">
+        <div class="nav-left">
+            <img src="Assets/Small-Logo.png" alt="logo" draggable="false">
+            <p>Grid Puzzler</p>
+        </div>
+        <div class="nav-right">
+            <p><a href="Instructions.html">Instructions</a></p>
+            <p><a href="generator.html">Generator</a></p>
+            <a href="home.html"><button class="home">Home</button></a>
+        </div>
+    </nav>
+    <div class="divider">
+        <div class="line"></div>
+    </div>
+
+    <section>
+        <h1 class="instruct">Scroll down for instructions.</h1>
+    </section>
+
+    <section>
+        <p class="reveal-type"  data-bg-color="teal" data-fg-color="#f1f1f1">Change the template by inputing different values, definitions, or words of your choice to make a 3x3 word puzzle. The inputs are correspondants to the template's values.</p>
+    </section>
+
+    <section>
+        <h2 class="reveal-type" data-bg-color="#cccccc" data-fg-color="#1A1A1A">Step 1</h2>
+        <p class="reveal-type" data-bg-color="#cccccc" data-fg-color="#1A1A1A">Choose a certain question, answer, or dummy question you want to change on the board</p>
+    </section>
+
+    <section>
+        <h2 class="reveal-type" data-bg-color="#b6b600" data-fg-color="white">Step 2</h2>
+        <p class="reveal-type" data-bg-color="#b6b600" data-fg-color="white">Type the value, definition, word, or anything you would like it to be!</p>
+    </section>
+
+    <section>
+        <h2 class="reveal-type" data-bg-color="#1A1A1A" data-fg-color="red">Step 3</h2>
+        <p class="reveal-type" data-bg-color="#1A1A1A" data-fg-color="red">Fill the rest of the form boxes out and click on the execute button to see the changes you've made to the puzzle.</p>
+    </section>
+
+    <section>
+        <h2 class="reveal-type" data-bg-color="#00C444" data-fg-color="white">Step 4</h2>
+        <p class="reveal-type" data-bg-color="#00C444" data-fg-color="white">You are almost done! Now just hit "CTRL" + "P" to print out the new puzzle you have just created. Congratulations!</p>
+    </section>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/split-type@0.3.4/umd/index.min.js"></script>
+    <script src="https://unpkg.com/@studio-freight/lenis@1.0.42/dist/lenis.min.js"></script> 
+
+    <script>
+
+        gsap.registerPlugin(ScrollTrigger)
+
+        const splitTypes = document.querySelectorAll('.reveal-type')
+
+        splitTypes.forEach((char,i) => {
+
+            const bg = char.dataset.bgColor
+            const fg = char.dataset.fgColor
+
+            const text = new SplitType(char, { types: 'chars'})
+
+            gsap.fromTo(text.chars, 
+                {
+                    color: bg,
+                },
+                {
+                    color: fg,
+                    duration: 0.3,
+                    stagger: 0.02,
+                    scrollTrigger: {
+                        trigger: char,
+                        start: 'top 80%',
+                        end: 'top 20%',
+                        scrub: true,
+                        markers: false,
+                        toggleActions: 'play play reverse reverse'
+                    }
+            })
+        })
+
+
+        const lenis = new Lenis()
+
+        lenis.on('scroll', (e) => {
+        console.log(e)
+        })
+
+        function raf(time) {
+        lenis.raf(time)
+        requestAnimationFrame(raf)
+        }
+
+        requestAnimationFrame(raf)
+
+    </script>
+</body>
+</html>
